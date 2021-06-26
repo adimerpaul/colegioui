@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/curso">Cursos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/student">Estudiantes</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

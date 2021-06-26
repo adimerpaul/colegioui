@@ -19,7 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::apiResource('/teacher',\App\Http\Controllers\TeacherController::class);
+    Route::apiResource('/curso',\App\Http\Controllers\CursoController::class);
+    Route::apiResource('/student',\App\Http\Controllers\StudentController::class);
+    Route::post('/upload',[\App\Http\Controllers\StudentController::class,'upload']);
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::apiResource('/teacher',\App\Http\Controllers\TeacherController::class)->middleware('auth');
-Route::apiResource('/curso',\App\Http\Controllers\CursoController::class)->middleware('auth');
